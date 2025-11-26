@@ -1,0 +1,6 @@
+# cd TLS
+
+# How to run venv
+.\venv\Scripts\Activate.ps1
+
+# cd WithoutTLS
