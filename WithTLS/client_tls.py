@@ -1,4 +1,4 @@
-
+"""
 import socket
 import ssl
 
@@ -25,8 +25,9 @@ with socket.create_connection((HOST, PORT)) as raw_sock:
         resp = conn.recv(4096)
         print("Response:", resp.decode("utf-8", errors="replace"))
 
-
 """
+
+
 # Etwas umgestalter Code für mTLS
 import socket
 import ssl
@@ -50,4 +51,3 @@ with socket.create_connection((HOST, PORT)) as raw_sock:
         print("Sent:", msg)
         resp = conn.recv(4096)
         print("Response:", resp.decode("utf-8", errors="replace"))
-"""

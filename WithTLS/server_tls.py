@@ -1,4 +1,4 @@
-
+"""
 # TLs ohne mTLS
 
 import socket
@@ -38,8 +38,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         except ssl.SSLError as e:
             print("TLS Error:", e)
 
-
 """
+
 # Code für mit mTLS
 import socket
 import ssl
@@ -48,6 +48,7 @@ HOST, PORT = "127.0.0.1", 8443
 
 context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
 context.minimum_version = ssl.TLSVersion.TLSv1_2
+context.maximum_version = ssl.TLSVersion.TLSv1_2
 
 # Server-Zertifikat
 context.load_cert_chain(certfile="server.crt", keyfile="server.key")
@@ -80,6 +81,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
                 conn.sendall(b"echo: " + data)
         except ssl.SSLError as e:
             print("TLS Error:", e)
-"""
+
 
 
